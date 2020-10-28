@@ -2,31 +2,50 @@
 	import { onMount } from 'svelte';
 
 	export let icons = [];
+	let iconTags = {};
 
 	let searchInput;
 	let searched = "";
-	let filtered_icons = [...icons];
-	let hidden_icons = [];
+	let tagged_icons = [...icons];
 
 	$: if (searched.length) {
-		filtered_icons = [...icons];
-		filtered_icons = filtered_icons.filter(i => isMatch(i));
+		tagged_icons = [...icons];
 
-		hidden_icons = [...icons];
-		hidden_icons = hidden_icons.filter(i => !isMatch(i));
+		tagged_icons = tagged_icons.filter(i => {
+			if (isMatch(i)) return true;
+			if (searched.length < 3) return false;
+			if (!iconTags[i]) return false;
+			for (let tag of iconTags[i]) {
+				if (isMatch(tag)) return true;
+			}
+			return false;
+		});
 	} else {
-		filtered_icons = [...icons];
-		hidden_icons = [];
+		tagged_icons = [...icons];
 	}
 
 	const isMatch = (icon) => {
 		return icon.toString().indexOf(searched.toLowerCase()) >= 0;
 	}
 
+	const highlight = (icon) => {
+		return icon.toString().replace(searched.toLowerCase(), `<code>${searched.toLowerCase()}</code>`)
+	}
+
+	const getTags = (icon) => {
+		if (searched.length < 3) return "";
+		if (!iconTags[icon]) return ""; 
+		return iconTags[icon].filter(i => isMatch(i)).map(i => `<span>${highlight(i)}</span>`).join(', ');
+	}
+
 	onMount(async () => {
 		searchInput.focus();
-		// const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
-		// photos = await res.json();
+
+		let res = await fetch(`/tags.json`);
+		res = await res.json();
+		res.icons.map(i => {
+			iconTags[i.name] = i.tags || [];
+		});
 	});
 </script>
 
@@ -39,11 +58,30 @@
 		bind:value={searched}>
 </div>
 
+
+{#if searched.length}
 <div class="icons">
-{#each filtered_icons as icon}
-	<div class="icon">{ icon } <i class="material-icons">{ icon }</i></div>
+{#each tagged_icons as icon}
+	<div class="icon searched">
+		<div class="icon-main">
+			<div>
+				<div>{@html highlight(icon) }</div>
+				<div class="tags">{@html getTags(icon)}</div>
+			</div> 
+			<i class="material-icons">{ icon }</i>
+		</div>
+	</div>
 {/each}
-{#each hidden_icons as icon}
-	<div class="icon shh">{ icon } <i class="material-icons">{ icon }</i></div>
+</div>
+<hr>
+{/if}
+
+<div class="icons">
+{#each icons as icon}
+	<div class="icon" class:shh={searched.length}>
+		<div class="icon-main">
+			<span>{ icon }</span>
+			<i class="material-icons">{ icon }</i></div>
+		</div>
 {/each}
 </div>

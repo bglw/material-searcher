@@ -4,18 +4,40 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	padding: 10px 0;
 }
 .icon {
 	border-bottom: 1px dotted #888;
     padding: 2px;
     line-height: 1.6;
     width: 30%;
+    font-family: monospace;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+
+    code {
+	    padding-right: 0;
+	    padding-left: 0;
+    }
 
     &.shh {
     	opacity: 0.2;
     }
+
+    &.searched {
+    	i {
+		    font-size: 2.4em;
+    	}
+    }
+}
+.icon-main {
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.tags {
+	font-size: 0.8em;
 }
 .search {
     max-width: 500px;

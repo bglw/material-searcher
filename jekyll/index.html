@@ -5,7 +5,11 @@ layout: main
 {% svelte material icons=site.data.icons %}
 <div class="icons">
 {% for icon in site.data.icons %}
-	<div class="icon">{{ icon }} <i class="material-icons">{{ icon }}</i></div>
+	<div class="icon">
+		<div class="icon-main">
+			<span>{{ icon }}</span>
+			<i class="material-icons">{{ icon }}</i></div>
+		</div>
 {% endfor %}
 </div>
 {% endsvelte %}
