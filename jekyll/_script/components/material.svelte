@@ -34,6 +34,14 @@
 		return iconTags[icon].filter(i => isMatch(i)).join(', ');
 	}
 
+	const click = async (icon) => {
+		try {
+			await navigator.clipboard.writeText(icon);
+		} catch(err) {
+			alert("Copy failed.");
+		}
+	}
+
 	onMount(async () => {
 		searchInput.focus();
 
@@ -60,11 +68,13 @@
 {#each tagged_icons as icon}
 	<div class="icon searched">
 		<div class="icon-main">
-			<div>
-				<div><code>{ icon }</code></div>
-				<div class="tags">{ getTags(icon)}</div>
-			</div> 
-			<i class="material-icons">{ icon }</i>
+			<button on:click={() => {click(icon)}}>
+				<div>
+					<div><code>{ icon }<i class="material-icons copy-icon">content_copy</i></code></div>
+					<div class="tags">{ getTags(icon)}</div>
+				</div> 
+				<i class="material-icons disp-icon">{ icon }</i>
+			</button>
 		</div>
 	</div>
 {/each}
@@ -77,7 +87,7 @@
 	<div class="icon" class:shh={searched.length}>
 		<div class="icon-main">
 			<span>{ icon }</span>
-			<i class="material-icons">{ icon }</i></div>
+			<i class="material-icons disp-icon">{ icon }</i></div>
 		</div>
 {/each}
 </div>
