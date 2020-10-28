@@ -1,0 +1,27 @@
+---
+---
+.icons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.icon {
+	border-bottom: 1px dotted #888;
+    padding: 2px;
+    line-height: 1.6;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+
+    &.shh {
+    	opacity: 0.2;
+    }
+}
+.search {
+    max-width: 500px;
+    margin: 30px auto 40px;
+}
+.input {
+    width: 100%;
+    height: 40px;
+}
