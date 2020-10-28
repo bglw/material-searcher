@@ -108,17 +108,17 @@ __webpack_require__.r(__webpack_exports__);
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i];
+	child_ctx[9] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i];
+	child_ctx[9] = list[i];
 	return child_ctx;
 }
 
-// (62:0) {#if searched.length}
+// (58:0) {#if searched.length}
 function create_if_block(ctx) {
 	let div;
 	let t;
@@ -169,7 +169,7 @@ function create_if_block(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, hr, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*tagged_icons, getTags, highlight*/ 56) {
+			if (dirty & /*tagged_icons, getTags*/ 24) {
 				each_value_1 = /*tagged_icons*/ ctx[3];
 				let i;
 
@@ -201,21 +201,24 @@ function create_if_block(ctx) {
 	};
 }
 
-// (64:0) {#each tagged_icons as icon}
+// (60:0) {#each tagged_icons as icon}
 function create_each_block_1(ctx) {
 	let div4;
 	let div3;
 	let div2;
 	let div0;
-	let raw0_value = /*highlight*/ ctx[4](/*icon*/ ctx[10]) + "";
+	let code;
+	let t0_value = /*icon*/ ctx[9] + "";
 	let t0;
-	let div1;
-	let raw1_value = /*getTags*/ ctx[5](/*icon*/ ctx[10]) + "";
 	let t1;
-	let i;
-	let t2_value = /*icon*/ ctx[10] + "";
+	let div1;
+	let t2_value = /*getTags*/ ctx[4](/*icon*/ ctx[9]) + "";
 	let t2;
 	let t3;
+	let i;
+	let t4_value = /*icon*/ ctx[9] + "";
+	let t4;
+	let t5;
 
 	return {
 		c() {
@@ -223,12 +226,15 @@ function create_each_block_1(ctx) {
 			div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+			code = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("code");
+			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t0_value);
 			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-			i = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("i");
+			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t2_value);
 			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			i = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("i");
+			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t4_value);
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			this.h();
 		},
 		l(nodes) {
@@ -240,19 +246,24 @@ function create_each_block_1(ctx) {
 			var div2_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(div2);
 			div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div2_nodes, "DIV", {});
 			var div0_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(div0);
+			code = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div0_nodes, "CODE", {});
+			var code_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(code);
+			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(code_nodes, t0_value);
+			code_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div0_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
-			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div2_nodes);
+			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div2_nodes);
 			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div2_nodes, "DIV", { class: true });
 			var div1_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(div1);
+			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(div1_nodes, t2_value);
 			div1_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div2_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
-			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div3_nodes);
+			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div3_nodes);
 			i = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div3_nodes, "I", { class: true });
 			var i_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(i);
-			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(i_nodes, t2_value);
+			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(i_nodes, t4_value);
 			i_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div3_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
-			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div4_nodes);
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div4_nodes);
 			div4_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			this.h();
 		},
@@ -267,19 +278,20 @@ function create_each_block_1(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div3);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div2);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div0);
-			div0.innerHTML = raw0_value;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, code);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(code, t0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div1);
-			div1.innerHTML = raw1_value;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t2);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t3);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, i);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(i, t2);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t3);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(i, t4);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t5);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*tagged_icons*/ 8 && raw0_value !== (raw0_value = /*highlight*/ ctx[4](/*icon*/ ctx[10]) + "")) div0.innerHTML = raw0_value;;
-			if (dirty & /*tagged_icons*/ 8 && raw1_value !== (raw1_value = /*getTags*/ ctx[5](/*icon*/ ctx[10]) + "")) div1.innerHTML = raw1_value;;
-			if (dirty & /*tagged_icons*/ 8 && t2_value !== (t2_value = /*icon*/ ctx[10] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
+			if (dirty & /*tagged_icons*/ 8 && t0_value !== (t0_value = /*icon*/ ctx[9] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
+			if (dirty & /*tagged_icons*/ 8 && t2_value !== (t2_value = /*getTags*/ ctx[4](/*icon*/ ctx[9]) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
+			if (dirty & /*tagged_icons*/ 8 && t4_value !== (t4_value = /*icon*/ ctx[9] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t4, t4_value);
 		},
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div4);
@@ -287,16 +299,16 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (80:0) {#each icons as icon}
+// (76:0) {#each icons as icon}
 function create_each_block(ctx) {
 	let div1;
 	let div0;
 	let span;
-	let t0_value = /*icon*/ ctx[10] + "";
+	let t0_value = /*icon*/ ctx[9] + "";
 	let t0;
 	let t1;
 	let i;
-	let t2_value = /*icon*/ ctx[10] + "";
+	let t2_value = /*icon*/ ctx[9] + "";
 	let t2;
 	let t3;
 
@@ -348,8 +360,8 @@ function create_each_block(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t3);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*icons*/ 1 && t0_value !== (t0_value = /*icon*/ ctx[10] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
-			if (dirty & /*icons*/ 1 && t2_value !== (t2_value = /*icon*/ ctx[10] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
+			if (dirty & /*icons*/ 1 && t0_value !== (t0_value = /*icon*/ ctx[9] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
+			if (dirty & /*icons*/ 1 && t2_value !== (t2_value = /*icon*/ ctx[9] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
 
 			if (dirty & /*searched*/ 4) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.toggle_class)(div1, "shh", /*searched*/ ctx[2].length);
@@ -426,7 +438,7 @@ function create_fragment(ctx) {
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div0, anchor);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, input);
-			/*input_binding*/ ctx[6](input);
+			/*input_binding*/ ctx[5](input);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input, /*searched*/ ctx[2]);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t0, anchor);
 			if (if_block) if_block.m(target, anchor);
@@ -438,7 +450,7 @@ function create_fragment(ctx) {
 			}
 
 			if (!mounted) {
-				dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input", /*input_input_handler*/ ctx[7]);
+				dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input", /*input_input_handler*/ ctx[6]);
 				mounted = true;
 			}
 		},
@@ -487,7 +499,7 @@ function create_fragment(ctx) {
 		o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div0);
-			/*input_binding*/ ctx[6](null);
+			/*input_binding*/ ctx[5](null);
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t0);
 			if (if_block) if_block.d(detaching);
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t1);
@@ -510,14 +522,10 @@ function instance($$self, $$props, $$invalidate) {
 		return icon.toString().indexOf(searched.toLowerCase()) >= 0;
 	};
 
-	const highlight = icon => {
-		return icon.toString().replace(searched.toLowerCase(), `<code>${searched.toLowerCase()}</code>`);
-	};
-
 	const getTags = icon => {
 		if (searched.length < 3) return "";
 		if (!iconTags[icon]) return "";
-		return iconTags[icon].filter(i => isMatch(i)).map(i => `<span>${highlight(i)}</span>`).join(", ");
+		return iconTags[icon].filter(i => isMatch(i)).join(", ");
 	};
 
 	(0,svelte__WEBPACK_IMPORTED_MODULE_1__.onMount)(async () => {
@@ -526,7 +534,7 @@ function instance($$self, $$props, $$invalidate) {
 		res = await res.json();
 
 		res.icons.map(i => {
-			$$invalidate(8, iconTags[i.name] = i.tags || [], iconTags);
+			$$invalidate(7, iconTags[i.name] = i.tags || [], iconTags);
 		});
 	});
 
@@ -547,7 +555,7 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty & /*searched, icons, tagged_icons, iconTags*/ 269) {
+		if ($$self.$$.dirty & /*searched, icons, tagged_icons, iconTags*/ 141) {
 			$: if (searched.length) {
 				$$invalidate(3, tagged_icons = [...icons]);
 
@@ -573,7 +581,6 @@ function instance($$self, $$props, $$invalidate) {
 		searchInput,
 		searched,
 		tagged_icons,
-		highlight,
 		getTags,
 		input_binding,
 		input_input_handler

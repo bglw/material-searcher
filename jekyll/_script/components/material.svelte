@@ -28,14 +28,10 @@
 		return icon.toString().indexOf(searched.toLowerCase()) >= 0;
 	}
 
-	const highlight = (icon) => {
-		return icon.toString().replace(searched.toLowerCase(), `<code>${searched.toLowerCase()}</code>`)
-	}
-
 	const getTags = (icon) => {
 		if (searched.length < 3) return "";
 		if (!iconTags[icon]) return ""; 
-		return iconTags[icon].filter(i => isMatch(i)).map(i => `<span>${highlight(i)}</span>`).join(', ');
+		return iconTags[icon].filter(i => isMatch(i)).join(', ');
 	}
 
 	onMount(async () => {
@@ -65,8 +61,8 @@
 	<div class="icon searched">
 		<div class="icon-main">
 			<div>
-				<div>{@html highlight(icon) }</div>
-				<div class="tags">{@html getTags(icon)}</div>
+				<div><code>{ icon }</code></div>
+				<div class="tags">{ getTags(icon)}</div>
 			</div> 
 			<i class="material-icons">{ icon }</i>
 		</div>
