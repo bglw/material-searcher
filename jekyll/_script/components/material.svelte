@@ -6,6 +6,7 @@
 
 	let searchInput;
 	let searched = "";
+	let copied = "";
 	let tagged_icons = [...icons];
 
 	$: if (searched.length) {
@@ -37,6 +38,7 @@
 	const click = async (icon) => {
 		try {
 			await navigator.clipboard.writeText(icon);
+			copied = icon;
 		} catch(err) {
 			alert("Copy failed.");
 		}
@@ -68,10 +70,16 @@
 {#each tagged_icons as icon}
 	<div class="icon searched">
 		<div class="icon-main">
-			<button on:click={() => {click(icon)}}>
+			<button on:click={() => {click(icon)}} class:copied={copied === icon}>
 				<div>
-					<div><code>{ icon }<i class="material-icons copy-icon">content_copy</i></code></div>
-					<div class="tags">{ getTags(icon)}</div>
+					<div><code><span>{ icon }<i class="material-icons copy-icon">content_copy</i></span></code></div>
+					<div class="tags">
+					{#if copied === icon}
+						Copied to clipboard!
+						{:else}
+						{ getTags(icon)}
+					{/if}
+					</div>
 				</div> 
 				<i class="material-icons disp-icon">{ icon }</i>
 			</button>

@@ -58,6 +58,18 @@
 	    		display: inline-block;
 	    	}
 	    }
+
+	    &.copied, &.copied code span {
+	    	@keyframes flash {
+	    		0% {
+	    			color: var(--links);
+	    		}
+	    		100% {
+	    			color: inherit;
+	    		}
+	    	}
+	    	animation: flash 1s ease 1 forwards;
+	    }
 	}
 }
 .icon-main {

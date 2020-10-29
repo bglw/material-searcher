@@ -108,22 +108,22 @@ __webpack_require__.r(__webpack_exports__);
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i];
+	child_ctx[12] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[11] = list[i];
+	child_ctx[12] = list[i];
 	return child_ctx;
 }
 
-// (66:0) {#if searched.length}
+// (68:0) {#if searched.length}
 function create_if_block(ctx) {
 	let div;
 	let t;
 	let hr;
-	let each_value_1 = /*tagged_icons*/ ctx[3];
+	let each_value_1 = /*tagged_icons*/ ctx[4];
 	let each_blocks = [];
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -169,8 +169,8 @@ function create_if_block(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, hr, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*click, tagged_icons, getTags*/ 56) {
-				each_value_1 = /*tagged_icons*/ ctx[3];
+			if (dirty & /*copied, tagged_icons, click, getTags*/ 120) {
+				each_value_1 = /*tagged_icons*/ ctx[4];
 				let i;
 
 				for (i = 0; i < each_value_1.length; i += 1) {
@@ -201,7 +201,52 @@ function create_if_block(ctx) {
 	};
 }
 
-// (68:0) {#each tagged_icons as icon}
+// (79:6) {:else}
+function create_else_block(ctx) {
+	let t_value = /*getTags*/ ctx[5](/*icon*/ ctx[12]) + "";
+	let t;
+
+	return {
+		c() {
+			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t_value);
+		},
+		l(nodes) {
+			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(nodes, t_value);
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*tagged_icons*/ 16 && t_value !== (t_value = /*getTags*/ ctx[5](/*icon*/ ctx[12]) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t);
+		}
+	};
+}
+
+// (77:5) {#if copied === icon}
+function create_if_block_1(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Copied to clipboard!");
+		},
+		l(nodes) {
+			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(nodes, "Copied to clipboard!");
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t, anchor);
+		},
+		p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+		d(detaching) {
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t);
+		}
+	};
+}
+
+// (70:0) {#each tagged_icons as icon}
 function create_each_block_1(ctx) {
 	let div4;
 	let div3;
@@ -209,24 +254,31 @@ function create_each_block_1(ctx) {
 	let div2;
 	let div0;
 	let code;
-	let t0_value = /*icon*/ ctx[11] + "";
+	let span;
+	let t0_value = /*icon*/ ctx[12] + "";
 	let t0;
 	let i0;
 	let t1;
 	let t2;
 	let div1;
-	let t3_value = /*getTags*/ ctx[4](/*icon*/ ctx[11]) + "";
 	let t3;
-	let t4;
 	let i1;
-	let t5_value = /*icon*/ ctx[11] + "";
+	let t4_value = /*icon*/ ctx[12] + "";
+	let t4;
 	let t5;
-	let t6;
 	let mounted;
 	let dispose;
 
+	function select_block_type(ctx, dirty) {
+		if (/*copied*/ ctx[3] === /*icon*/ ctx[12]) return create_if_block_1;
+		return create_else_block;
+	}
+
+	let current_block_type = select_block_type(ctx, -1);
+	let if_block = current_block_type(ctx);
+
 	function click_handler(...args) {
-		return /*click_handler*/ ctx[8](/*icon*/ ctx[11], ...args);
+		return /*click_handler*/ ctx[9](/*icon*/ ctx[12], ...args);
 	}
 
 	return {
@@ -237,16 +289,17 @@ function create_each_block_1(ctx) {
 			div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			code = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("code");
+			span = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
 			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t0_value);
 			i0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("i");
 			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("content_copy");
 			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t3_value);
-			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			if_block.c();
+			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			i1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("i");
-			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t5_value);
-			t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t4_value);
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			this.h();
 		},
 		l(nodes) {
@@ -262,27 +315,30 @@ function create_each_block_1(ctx) {
 			var div0_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(div0);
 			code = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div0_nodes, "CODE", {});
 			var code_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(code);
-			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(code_nodes, t0_value);
-			i0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(code_nodes, "I", { class: true });
+			span = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(code_nodes, "SPAN", {});
+			var span_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(span);
+			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(span_nodes, t0_value);
+			i0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(span_nodes, "I", { class: true });
 			var i0_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(i0);
 			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(i0_nodes, "content_copy");
 			i0_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
+			span_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			code_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div0_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div2_nodes);
 			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(div2_nodes, "DIV", { class: true });
 			var div1_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(div1);
-			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(div1_nodes, t3_value);
+			if_block.l(div1_nodes);
 			div1_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div2_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
-			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(button_nodes);
+			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(button_nodes);
 			i1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_element)(button_nodes, "I", { class: true });
 			var i1_nodes = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.children)(i1);
-			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(i1_nodes, t5_value);
+			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_text)(i1_nodes, t4_value);
 			i1_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			button_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			div3_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
-			t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div4_nodes);
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.claim_space)(div4_nodes);
 			div4_nodes.forEach(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach);
 			this.h();
 		},
@@ -290,6 +346,7 @@ function create_each_block_1(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(i0, "class", "material-icons copy-icon");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", "tags");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(i1, "class", "material-icons disp-icon");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.toggle_class)(button, "copied", /*copied*/ ctx[3] === /*icon*/ ctx[12]);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div3, "class", "icon-main");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div4, "class", "icon searched");
 		},
@@ -300,16 +357,17 @@ function create_each_block_1(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, div2);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, code);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(code, t0);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(code, i0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(code, span);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(span, t0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(span, i0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(i0, t1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t2);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div1);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t3);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t4);
+			if_block.m(div1, null);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t3);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, i1);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(i1, t5);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t6);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(i1, t4);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t5);
 
 			if (!mounted) {
 				dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click", click_handler);
@@ -318,28 +376,45 @@ function create_each_block_1(ctx) {
 		},
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
-			if (dirty & /*tagged_icons*/ 8 && t0_value !== (t0_value = /*icon*/ ctx[11] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
-			if (dirty & /*tagged_icons*/ 8 && t3_value !== (t3_value = /*getTags*/ ctx[4](/*icon*/ ctx[11]) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t3, t3_value);
-			if (dirty & /*tagged_icons*/ 8 && t5_value !== (t5_value = /*icon*/ ctx[11] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t5, t5_value);
+			if (dirty & /*tagged_icons*/ 16 && t0_value !== (t0_value = /*icon*/ ctx[12] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
+
+			if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block) {
+				if_block.p(ctx, dirty);
+			} else {
+				if_block.d(1);
+				if_block = current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(div1, null);
+				}
+			}
+
+			if (dirty & /*tagged_icons*/ 16 && t4_value !== (t4_value = /*icon*/ ctx[12] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t4, t4_value);
+
+			if (dirty & /*copied, tagged_icons*/ 24) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.toggle_class)(button, "copied", /*copied*/ ctx[3] === /*icon*/ ctx[12]);
+			}
 		},
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div4);
+			if_block.d();
 			mounted = false;
 			dispose();
 		}
 	};
 }
 
-// (86:0) {#each icons as icon}
+// (94:0) {#each icons as icon}
 function create_each_block(ctx) {
 	let div1;
 	let div0;
 	let span;
-	let t0_value = /*icon*/ ctx[11] + "";
+	let t0_value = /*icon*/ ctx[12] + "";
 	let t0;
 	let t1;
 	let i;
-	let t2_value = /*icon*/ ctx[11] + "";
+	let t2_value = /*icon*/ ctx[12] + "";
 	let t2;
 	let t3;
 
@@ -391,8 +466,8 @@ function create_each_block(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t3);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*icons*/ 1 && t0_value !== (t0_value = /*icon*/ ctx[11] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
-			if (dirty & /*icons*/ 1 && t2_value !== (t2_value = /*icon*/ ctx[11] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
+			if (dirty & /*icons*/ 1 && t0_value !== (t0_value = /*icon*/ ctx[12] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
+			if (dirty & /*icons*/ 1 && t2_value !== (t2_value = /*icon*/ ctx[12] + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t2, t2_value);
 
 			if (dirty & /*searched*/ 4) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.toggle_class)(div1, "shh", /*searched*/ ctx[2].length);
@@ -469,7 +544,7 @@ function create_fragment(ctx) {
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div0, anchor);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, input);
-			/*input_binding*/ ctx[6](input);
+			/*input_binding*/ ctx[7](input);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input, /*searched*/ ctx[2]);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t0, anchor);
 			if (if_block) if_block.m(target, anchor);
@@ -481,7 +556,7 @@ function create_fragment(ctx) {
 			}
 
 			if (!mounted) {
-				dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input", /*input_input_handler*/ ctx[7]);
+				dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input", /*input_input_handler*/ ctx[8]);
 				mounted = true;
 			}
 		},
@@ -530,7 +605,7 @@ function create_fragment(ctx) {
 		o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div0);
-			/*input_binding*/ ctx[6](null);
+			/*input_binding*/ ctx[7](null);
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t0);
 			if (if_block) if_block.d(detaching);
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t1);
@@ -547,6 +622,7 @@ function instance($$self, $$props, $$invalidate) {
 	let iconTags = {};
 	let searchInput;
 	let searched = "";
+	let copied = "";
 	let tagged_icons = [...icons];
 
 	const isMatch = icon => {
@@ -562,6 +638,7 @@ function instance($$self, $$props, $$invalidate) {
 	const click = async icon => {
 		try {
 			await navigator.clipboard.writeText(icon);
+			$$invalidate(3, copied = icon);
 		} catch(err) {
 			alert("Copy failed.");
 		}
@@ -573,7 +650,7 @@ function instance($$self, $$props, $$invalidate) {
 		res = await res.json();
 
 		res.icons.map(i => {
-			$$invalidate(9, iconTags[i.name] = i.tags || [], iconTags);
+			$$invalidate(10, iconTags[i.name] = i.tags || [], iconTags);
 		});
 	});
 
@@ -598,11 +675,11 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty & /*searched, icons, tagged_icons, iconTags*/ 525) {
+		if ($$self.$$.dirty & /*searched, icons, tagged_icons, iconTags*/ 1045) {
 			$: if (searched.length) {
-				$$invalidate(3, tagged_icons = [...icons]);
+				$$invalidate(4, tagged_icons = [...icons]);
 
-				$$invalidate(3, tagged_icons = tagged_icons.filter(i => {
+				$$invalidate(4, tagged_icons = tagged_icons.filter(i => {
 					if (isMatch(i)) return true;
 					if (searched.length < 3) return false;
 					if (!iconTags[i]) return false;
@@ -614,7 +691,7 @@ function instance($$self, $$props, $$invalidate) {
 					return false;
 				}));
 			} else {
-				$$invalidate(3, tagged_icons = [...icons]);
+				$$invalidate(4, tagged_icons = [...icons]);
 			}
 		}
 	};
@@ -623,6 +700,7 @@ function instance($$self, $$props, $$invalidate) {
 		icons,
 		searchInput,
 		searched,
+		copied,
 		tagged_icons,
 		getTags,
 		click,
